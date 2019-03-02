@@ -1,0 +1,97 @@
+db.employee.insert({
+    "id":1,
+    "emp_code":"EMP-001",
+    "emp_name":"KARTHIK",
+    "doj":"2018-12-23",
+    "salary":10000
+})
+
+db.employee.insert({
+    "id":2,
+    "emp_code":"EMP-002",
+    "emp_name":"HARSHA",
+    "doj":"2018-2-20",
+    "salary":20000
+})
+
+db.employee.insert({
+    "id":3,
+    "emp_code":"EMP-003",
+    "emp_name":"JEEVAN",
+    "doj":"2017-1-23",
+    "salary":30000
+})
+
+db.employee.insert({
+    "id":4,
+    "emp_code":"EMP-004",
+    "emp_name":"LAKSHMAN",
+    "doj":"2016-12-23",
+    "salary":50000
+})
+
+db.employee.insert({
+    "id":5,
+    "emp_code":"EMP-005",
+    "emp_name":"RAM",
+    "doj":"2015-12-2",
+    "salary":70000
+})
+
+db.employee.insertMany( [
+    {    
+        "id":6,
+        "emp_code":"EMP-006",
+        "emp_name":"RAMESH",
+        "doj":"2015-2-2",
+        "salary":30000,
+        "deduction":{
+            "pf":3400,
+            "pt":3000
+        }
+    },
+    {
+        "id":7,
+        "emp_code":"EMP-007",
+        "emp_name":"SHREE",
+        "doj":"2014-1-2",
+        "salary":50000,
+        "deduction":{
+            "pf":3000,
+            "pt":800
+        }
+    },
+    {
+        "id":8,
+        "emp_code":"EMP-008",
+        "emp_name":"RAM",
+        "doj":"2013-12-2",
+        "salary":60000,
+        "deduction":{
+            "pf":8000,
+            "pt":800
+        }
+    },
+    {
+        "id":9,
+        "emp_code":"EMP-009",
+        "emp_name":"RAM",
+        "doj":"2016-10-3",
+        "salary":70000,
+        "deduction":{
+            "pf":7000,
+            "pt":900
+        }
+    },
+    {
+        "id":10,
+        "emp_code":"EMP-010",
+        "emp_name":"RAM",
+        "doj":"2018-2-2",
+        "salary":70000,
+        "deduction":{
+            "pf":40000,
+            "pt":600
+        }
+    }
+ ] );

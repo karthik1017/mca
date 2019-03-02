@@ -1,0 +1,237 @@
+KARTHIK D
+PES1201702449
+
+1. Check if two strings are anagrams of each other.
+
+>>> s = 'ram'
+>>> s1 = 'mar'
+>>> set(s) == set(s1)
+True
+
+2. Create a simple calculator
+>>>	a=input("enter a value")
+	enter a value 20
+>>>	b=input("enter b value")
+	enter value b value 10
+>>>	add=int(a) + int(b)
+>>> add
+    30
+>>> sub=int(a)-int (b)
+>>> sub
+    10
+>>> mul=int(a)*int(b)
+>>> mul
+    200
+>>> div=int(a)/int(b)
+>>> div
+    2    
+
+3. Read a number n and Compute n+nn+nnn
+>>> n = int(input('enter value for n'));
+enter value for n3
+>>> x = n*1
+>>> y = n*10+n*1
+>>> z = n*100+n*10+n*1
+>>> x+y+z
+369
+
+
+4. Form a New String where the First Character and the Last Character of the old string have
+   been Exchanged
+
+>>> s1 = 'karthi'
+>>> l1 = list(s1)
+>>> end = l1.pop()
+>>> start = l1.pop(0)
+>>> l1.append(start)
+>>> l1.insert(0,end)
+>>> s1 = ''.join(l1)
+>>> s1
+'iarthk'
+
+5. Remove spaces from a string
+
+>>> s1 = 'karthik is a student'
+>>> s1 
+'karthik is a student'
+>>> s1 = s1.split(' ')
+>>> s1
+['karthik', 'is', 'a', 'student']
+>>> s1 = ''.join(s1)
+>>> s1
+'karthikisastudent'
+
+6. Create two sets of numbers and implement union, intersection, Set Difference, Symmetric
+   Difference of the sets
+
+>>> set1 = set({1,2,3,4})
+>>> set1
+{1, 2, 3, 4}
+>>> set2 = set({2,3,5,6})
+>>> set2
+{2, 3, 5, 6}
+>>> # UNION
+... set1 | set2
+{1, 2, 3, 4, 5, 6}
+>>> # INTERSECTION
+... set1 & set2
+{2, 3}
+>>> # difference
+... set1 - set2
+{1, 4}
+>>> # SYMETRIC DIFFERENCE
+... set1 ^ set2
+{1, 4, 5, 6}
+
+7. Accept the radius and print the area and circumference of a circle.
+
+>>> import math
+>>> r = float(input("enter the radius : "))
+enter the radius : 4.5
+>>> area = math.pi * r * r
+>>> area
+63.61725123519331
+
+8. Accept a sequence of comma-separated numbers from user and generate a list and a tuple 
+   with those numbers.
+
+>>> numbers = input("enter the numbers : ")
+enter the numbers : 1,2,3,4,5
+>>> # converting to list.
+... list = numbers.split(',')
+... list
+['1', '2', '3', '4', '5']
+>>> # converting to tuple 
+... tuple(list)
+('1', '2', '3', '4', '5')
+
+9. Accept a filename and display the following "File name is ---- and file extension is ------"
+
+>>> filename = input('enter the filename with extention : ')
+enter the filename with extention : karthik.py
+>>> filename = filename.split('.')
+>>> print('the filename is ',filename[0],' and file extension is', filename[1] ) 
+the filename is  karthik  and file extension is py
+
+10. Accept a list of colors and display the odd numbered indexed colors.
+
+>>> colors = input('enter the colors list: ')
+enter the colors list: red,blue,green,yellow,white
+>>> colorslist = colors.split(',')
+>>> colorslist[1::2]
+['blue', 'yellow']
+
+11. Accept the base and height of a triangle and compute the area.
+
+>>> base = float(input('enter the base value: '))
+enter the base value: 2.3
+>>> height = float(input('enter the height value: '))
+enter the height value: 4
+>>> area = 0.5 * base * height
+>>> area
+4.6
+
+12. Compute the Final amount of simple interest given principal amount, rate of interest, and a
+    number of years.
+
+>>> principle = input('enter the principle amount:  ');
+enter the principle amount:  
+>>> principle = int(input('enter the principle amount:  '));
+enter the principle amount:  35000
+>>> rate = float(input('enter the rate: '));
+enter the rate: 3
+>>> years = int(input('enter the numbers of years: '));
+enter the numbers of years: 5
+>>> simple_intrest = (principle * years * rate)/100
+>>> simple_intrest
+5250.0
+
+13. Given weight and height calculate BMI (weight/(height * height))
+
+>>> weight = float(input('enter the value for weight: '))
+enter the value for weight: 5.7
+>>> height = float(input('enter the value for height: '))
+enter the value for height: 3.5
+>>> bmi = weight/(height * height) 
+>>> bmi
+0.4653061224489796
+
+14. Sort three integers without using conditions.
+
+>>> numbers = input('enter three numbers: ');
+enter three numbers: 14,23,1
+>>> numbers = numbers.split(',')
+>>> numbers
+['14', '23', '1']
+>>> numbers.sort()
+>>> numbers
+['1', '14', '23']
+
+15. Concatenate two tuples
+
+>>> tuple1 = (34,45,23)
+>>> tuple2 = (3,56,67)
+>>> tuple3 = tuple1 + tuple2
+>>> tuple3
+(34, 45, 23, 3, 56, 67)
+
+16. Create a tuple of two tuples.
+
+>>> tuple1 = (243,42,3)
+>>> tuple2 = (45,534,36)
+>>> tuple3 = (tuple1,tuple2)
+>>> tuple3
+((243,42,3),(45,534,36))
+
+17. Get a single string from two given strings, separated by a space and swap the first two
+    characters of each string.
+
+>>> str1 = 'karthik'
+>>> str1 = str1[-2:] + str1[2:-2] + str1[:2]
+>>> str1
+'ikrthka'
+>>> str2 = 'devaraj'
+>>> str2 = str2[-2:] + str2[2:-2] + str2[:2]
+>>> str2
+'ajvarde'
+>>> str3 = ' '.join(str1+str2)
+>>> str3
+'k a r t h i k a j v a r d e'
+
+18. Change a given string to a new string where the second and last but one chars have been
+    exchanged.
+
+>>> str1 = 'karthik'
+>>> str1 = str1[0] + str1[-1] + str1[2:-1] + str1[1]
+>>> str1
+'kkrthia'
+
+19. Accept a comma separated sequence of words as input and print the unique words in sorted
+    form (alphanumerically).
+
+>>> words = input('enter the words: ')
+enter the words: k,a,r,t,h,i,k
+>>> words = words.split(',')
+>>> words.sort()
+>>> words = ''.join(words)
+>>> words
+'ahikkrt'
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+

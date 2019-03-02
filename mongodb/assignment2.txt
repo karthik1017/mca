@@ -1,0 +1,588 @@
+1)	Create a collection called employee that contains id, name, salary and role.
+
+> db.createCollection('employee')
+
+2)	Insert 10 documents.
+
+> db.employee.insertMany(
+...     [
+...         {
+...             emp_id:1,
+...             name:"karthik",
+...             salary:10000,
+...             role:"HR"
+...         },
+...         {
+...             emp_id:2,
+...             name:"adharsha",
+...             salary:4000,
+...             role:"Manager"
+...         },
+...         {
+...             emp_id:3,
+...             name:"sathish",
+...             salary:9000,
+...             role:"Manager"
+...         },
+...         {
+...             emp_id:4,
+...             name:"sudhanva",
+...             salary:5000,
+...             role:"janitor"
+...         },
+...         {
+...             emp_id:5,
+...             name:"AAA",
+...             salary:7999,
+...             role:"BBB"
+...         },
+...         {
+...             emp_id:6,
+...             name:"ccc",
+...             salary:7999,
+...             role:"ddd"
+...         },
+...         {
+...             emp_id:7,
+...             name:"karthik",
+...             salary:100000,
+...             role:"ceo"
+...         },
+...         {
+...             emp_id:8,
+...             name:"rama",
+...             salary:40000,
+...             role:"cto"
+...         },
+...         {
+...             emp_id:9,
+...             name:"krish",
+...             salary:4000,
+...             role:"security",
+...         },
+...         {
+...             emp_id:10,
+...             name:"kalyan",
+...             salary:70000,
+...             role:"creativity manager"
+...         }
+...     ]
+... )
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5c65307532df94562d66ce00"),
+		ObjectId("5c65307532df94562d66ce01"),
+		ObjectId("5c65307532df94562d66ce02"),
+		ObjectId("5c65307532df94562d66ce03"),
+		ObjectId("5c65307532df94562d66ce04"),
+		ObjectId("5c65307532df94562d66ce05"),
+		ObjectId("5c65307532df94562d66ce06"),
+		ObjectId("5c65307532df94562d66ce07"),
+		ObjectId("5c65307532df94562d66ce08"),
+		ObjectId("5c65307532df94562d66ce09")
+	]
+}
+
+
+3)	Update salary of employee whose name is AAA by 8000.
+
+> db.employee.update({name:'AAA'},{$set:{salary:8000}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.find({name:'AAA'}).pretty()
+{
+	"_id" : ObjectId("5c65307532df94562d66ce04"),
+	"emp_id" : 5,
+	"name" : "AAA",
+	"salary" : 8000,
+	"role" : "BBB"
+}
+
+
+4)	Update salary of all employees by giving an increment of 4500.
+
+> db.employee.updateMany({},{ $inc:{"salary":4500}});
+{ "acknowledged" : true, "matchedCount" : 10, "modifiedCount" : 10 }
+
+
+5)	Update role of ‘NNN’ as ‘Head’ and ‘Prof’.
+
+> db.employee.update(
+...     {
+...         name: 'ccc'
+...     },
+...     {
+...         $set:{
+...             role : ['head','professor']
+...         }
+...     }
+... )
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.employee.find({name: "ccc"}).pretty()
+{
+	"_id" : ObjectId("5c65307532df94562d66ce05"),
+	"emp_id" : 6,
+	"name" : "ccc",
+	"salary" : 12499,
+	"role" : [
+		"head",
+		"professor"
+	]
+}
+
+
+6)	Add a new field called ‘Remark’ to the document that contains the name ‘BBB’ with the value
+    ‘VC’.
+
+> db.employee.update({name: "AAA"},{$set:{"remark":"vc"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.find({name:"AAA"}).pretty()
+{
+	"_id" : ObjectId("5c65307532df94562d66ce04"),
+	"emp_id" : 5,
+	"name" : "AAA",
+	"salary" : 12500,
+	"role" : "BBB",
+	"remark" : "vc"
+}
+
+
+7)	Without inserting a document add a document with id as 11, name ‘XXX’, salary 10000, role
+    ‘coach
+
+> db.employee.update(
+...     {
+...         name: "xxx"
+...     },
+...     {
+...         emp_id:11,
+...         name: "XXX",
+...         salary: 10000,
+...         role: "coach",
+...     },
+...     {
+...         upsert: true
+...     }
+... )
+WriteResult({
+	"nMatched" : 0,
+	"nUpserted" : 1,
+	"nModified" : 0,
+	"_id" : ObjectId("5c658bd32aed8c5b4afdad1c")
+})
+> db.employee.find({name:"XXX"}).pretty()
+{
+	"_id" : ObjectId("5c658bd32aed8c5b4afdad1c"),
+	"emp_id" : 11,
+	"name" : "XXX",
+	"salary" : 10000,
+	"role" : "coach"
+}
+
+
+8) Create a collection called restaurants that contains id, name, address – building,              coordinates[latitude, longitude], street, city, zipcode, cuisine, ratings – date, grade,        score
+  
+
+> db.createCollection("restaurants")
+{ "ok" : 1 }
+
+
+ 9)	Insert 10 documents
+
+ > db.restaurants.insertMany(
+...     [
+...         {
+...             name: "adigas",
+...             address: {
+...                 building: 1,
+...                 coordinates:[1,2],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 001
+...             },
+...             cuisine: "south indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.0
+...             }
+...         },
+...         {
+...             name: "shivaji",
+...             address: {
+...                 building: 2,
+...                 coordinates:[2,3],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 002
+...             },
+...             cuisine: "south indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.5
+...             }
+...         },
+...         {
+...             name: "rasa",
+...             address: {
+...                 building: 3,
+...                 coordinates:[4,5],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 003
+...             },
+...             cuisine: "east indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 3.0
+...             }
+...         },
+...         {
+...             name: "gas",
+...             address: {
+...                 building: 4,
+...                 coordinates:[6,7],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 004
+...             },
+...             cuisine: "north indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.0
+...             }
+...         },
+...         {
+...             name: "adi",
+...             address: {
+...                 building: 5,
+...                 coordinates:[7,8],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 005
+...             },
+...             cuisine: "international",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.5
+...             }
+...         },
+...         {
+...             name: "udupi",
+...             address: {
+...                 building: 6,
+...                 coordinates:[9,8],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 006
+...             },
+...             cuisine: "south indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.3
+...             }
+...         },
+...         {
+...             name: "krishna",
+...             address: {
+...                 building: 7,
+...                 coordinates:[10,20],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 007
+...             },
+...             cuisine: "malabar",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.1
+...             }
+...         },
+...         {
+...             name: "rama",
+...             address: {
+...                 building: 8,
+...                 coordinates:[13,2],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 006
+...             },
+...             cuisine: "south indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.0
+...             }
+...         },
+...         {
+...             name: "adyar",
+...             address: {
+...                 building: 9,
+...                 coordinates:[1,2],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 004
+...             },
+...             cuisine: "south indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.0
+...             }
+...         },
+...         {
+...             name: "ananda",
+...             address: {
+...                 building: 1,
+...                 coordinates:[1,2],
+...                 street: "r v road",
+...                 city: "bengaluru",
+...                 zipcode: 001
+...             },
+...             cuisine: "south indian",
+...             ratings: {
+...                 date: Date(),
+...                 grade: "first class",
+...                 score: 4.0
+...             }
+...         },
+...     ]
+... )
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5c658fa900bca1f3041780c1"),
+		ObjectId("5c658fa900bca1f3041780c2"),
+		ObjectId("5c658fa900bca1f3041780c3"),
+		ObjectId("5c658fa900bca1f3041780c4"),
+		ObjectId("5c658fa900bca1f3041780c5"),
+		ObjectId("5c658fa900bca1f3041780c6"),
+		ObjectId("5c658fa900bca1f3041780c7"),
+		ObjectId("5c658fa900bca1f3041780c8"),
+		ObjectId("5c658fa900bca1f3041780c9"),
+		ObjectId("5c658fa900bca1f3041780ca")
+	]
+}
+
+
+10)	Display the fields id, name, cuisine for all the documents in the collection restaurant.
+
+> db.restaurants.find({},{_id:1,name:1,cuisine:1}).pretty()
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c1"),
+	"name" : "adigas",
+	"cuisine" : "south indian"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c2"),
+	"name" : "shivaji",
+	"cuisine" : "south indian"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c3"),
+	"name" : "rasa",
+	"cuisine" : "east indian"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c4"),
+	"name" : "gas",
+	"cuisine" : "north indian"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c5"),
+	"name" : "adi",
+	"cuisine" : "international"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c6"),
+	"name" : "udupi",
+	"cuisine" : "south indian"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c7"),
+	"name" : "krishna",
+	"cuisine" : "malabar"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c8"),
+	"name" : "rama",
+	"cuisine" : "south indian"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c9"),
+	"name" : "adyar",
+	"cuisine" : "south indian"
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780ca"),
+	"name" : "ananda",
+	"cuisine" : "south indian"
+}
+
+
+11)	Display all restaurants that sell ‘chinese’
+
+> db.restaurants.find({"cuisine":"south indian" }).pretty()
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c1"),
+	"name" : "adigas",
+	"address" : {
+		"building" : 1,
+		"coordinates" : [
+			1,
+			2
+		],
+		"street" : "r v road",
+		"city" : "bengaluru",
+		"zipcode" : 1
+	},
+	"cuisine" : "south indian",
+	"ratings" : {
+		"date" : "Thu Feb 14 2019 21:26:25 GMT+0530 (IST)",
+		"grade" : "first class",
+		"score" : 4
+	}
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c2"),
+	"name" : "shivaji",
+	"address" : {
+		"building" : 2,
+		"coordinates" : [
+			2,
+			3
+		],
+		"street" : "r v road",
+		"city" : "bengaluru",
+		"zipcode" : 2
+	},
+	"cuisine" : "south indian",
+	"ratings" : {
+		"date" : "Thu Feb 14 2019 21:26:25 GMT+0530 (IST)",
+		"grade" : "first class",
+		"score" : 4.5
+	}
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c6"),
+	"name" : "udupi",
+	"address" : {
+		"building" : 6,
+		"coordinates" : [
+			9,
+			8
+		],
+		"street" : "r v road",
+		"city" : "bengaluru",
+		"zipcode" : 6
+	},
+	"cuisine" : "south indian",
+	"ratings" : {
+		"date" : "Thu Feb 14 2019 21:26:25 GMT+0530 (IST)",
+		"grade" : "first class",
+		"score" : 4.3
+	}
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c8"),
+	"name" : "rama",
+	"address" : {
+		"building" : 8,
+		"coordinates" : [
+			13,
+			2
+		],
+		"street" : "r v road",
+		"city" : "bengaluru",
+		"zipcode" : 6
+	},
+	"cuisine" : "south indian",
+	"ratings" : {
+		"date" : "Thu Feb 14 2019 21:26:25 GMT+0530 (IST)",
+		"grade" : "first class",
+		"score" : 4
+	}
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c9"),
+	"name" : "adyar",
+	"address" : {
+		"building" : 9,
+		"coordinates" : [
+			1,
+			2
+		],
+		"street" : "r v road",
+		"city" : "bengaluru",
+		"zipcode" : 4
+	},
+	"cuisine" : "south indian",
+	"ratings" : {
+		"date" : "Thu Feb 14 2019 21:26:25 GMT+0530 (IST)",
+		"grade" : "first class",
+		"score" : 4
+	}
+}
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780ca"),
+	"name" : "ananda",
+	"address" : {
+		"building" : 1,
+		"coordinates" : [
+			1,
+			2
+		],
+		"street" : "r v road",
+		"city" : "bengaluru",
+		"zipcode" : 1
+	},
+	"cuisine" : "south indian",
+	"ratings" : {
+		"date" : "Thu Feb 14 2019 21:26:25 GMT+0530 (IST)",
+		"grade" : "first class",
+		"score" : 4
+	}
+}
+
+
+12)	Find the restaurants which locate in latitude value less than - 95.754168.
+
+> db.restaurants.find(
+...     {},
+...     {
+...         arrayFilters: [{
+...             coordinates: {
+...                 $lt: 95.754168
+...             }
+...         }]
+...     }
+... ).pretty()
+{ "_id" : ObjectId("5c658fa900bca1f3041780c1") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c2") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c3") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c4") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c5") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c6") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c7") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c8") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780c9") }
+{ "_id" : ObjectId("5c658fa900bca1f3041780ca") }
+
+
+13.	Find the days on which the restaurants that sell Continental were graded.
+
+> db.restaurants.find({cuisine: "international"},{ratings:1,date:1}).pretty()
+{
+	"_id" : ObjectId("5c658fa900bca1f3041780c5"),
+	"ratings" : {
+		"date" : "Thu Feb 14 2019 21:26:25 GMT+0530 (IST)",
+		"grade" : "first class",
+		"score" : 4.5
+	}
+}
