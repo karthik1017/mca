@@ -146,42 +146,42 @@ db.pets.insertMany(
             ]
         },
         {
-            name:"HARSHA K Y",
+            name:"lakshman",
             age: 21,
             pets:[
                 {
-                    petName:"sudh",
-                    petAge:24,
+                    petName:"trigger",
+                    petAge:2,
+                    petType:"cockroach"
+                },
+                {
+                    petName:"ronney",
+                    petAge:5,
                     petType:"dog"
                 },
                 {
-                    petName:"rocky",
-                    petAge:5,
-                    petType:"cat"
-                },
-                {
-                    petName:"lakshmi",
-                    petAge:20,
-                    petType:"cow"
+                    petName:"high",
+                    petAge:2,
+                    petType:"mosquito"
                 }
             ]
         },
         {
-            name:"HARSHA K Y",
+            name:"abhi ram",
             age: 21,
             pets:[
                 {
-                    petName:"sudh",
-                    petAge:24,
+                    petName:"raymond",
+                    petAge:2,
                     petType:"dog"
                 },
                 {
-                    petName:"rocky",
+                    petName:"roco",
                     petAge:5,
                     petType:"cat"
                 },
                 {
-                    petName:"lakshmi",
+                    petName:"seeta",
                     petAge:20,
                     petType:"cow"
                 }
@@ -189,3 +189,19 @@ db.pets.insertMany(
         },
     ]
 )
+
+db.pets.count({"pets.petType":"cat"})
+
+db.pets.aggregate([
+    {
+
+    }
+])
+
+db.pets.find({"pets.petType":"dog"}).limit(2)
+
+db.books.aggregate( [
+    { $group : { _id : "$author", books: { $push: "$title" } } },
+    { $out : "authors" }
+] ) 
+
