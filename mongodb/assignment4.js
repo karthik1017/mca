@@ -103,3 +103,42 @@ db.invoice.aggregate(
        }
     ]
 ).pretty()
+
+
+db.invoice.aggregate(
+    [
+       {
+         $group : {
+            _id : { month: { $month: "$date_of_invoice" }, day: { $dayOfMonth: "$date_of_invoice" }, year: { $year: "$date_of_invoice" } },
+            totalPrice: { $sum: { $multiply: [ "$rate", "$qty" ] } },
+            averageQuantity: { $avg: "$qty" },
+            count: { $sum: 1 }
+         }
+       }
+    ]
+).pretty()
+
+db.invoice.aggregate(
+    [
+       {
+        $match : {date_of_invoice : "2014-12-05"}
+       },
+       {
+         $group : {
+            _id : { month: { $month: "$date_of_invoice" }, day: { $dayOfMonth: "$date_of_invoice" }, year: { $year: "$date_of_invoice" },item :"$item"},
+            totalPrice: { $sum: { $multiply: [ "$rate", "$qty" ] } },
+            averageQuantity: { $avg: "$qty" },
+            count: { $sum: 1 }
+         }
+       }
+    ]
+).pretty()
+
+
+
+
+
+
+db.invoice.find().skip(3).limit(4).pretty()
+
+

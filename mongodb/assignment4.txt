@@ -266,3 +266,212 @@ switched to db mca
 	"averageQuantity" : 500,
 	"count" : 1
 }
+
+4)
+
+> db.invoice.aggregate(
+...     [
+...        {
+...          $group : {
+...             _id : { month: { $month: "$date_of_invoice" }, day: { $dayOfMonth: "$date_of_invoice" }, year: { $year: "$date_of_invoice" },item :"$item"},
+...             totalPrice: { $sum: { $multiply: [ "$rate", "$qty" ] } },
+...             averageQuantity: { $avg: "$qty" },
+...             count: { $sum: 1 }
+...          }
+...        }
+...     ]
+... ).pretty()
+{
+	"_id" : {
+		"month" : 10,
+		"day" : 3,
+		"year" : 2017,
+		"item" : "fanta mint"
+	},
+	"totalPrice" : 6000,
+	"averageQuantity" : 300,
+	"count" : 2
+}
+{
+	"_id" : {
+		"month" : 10,
+		"day" : 3,
+		"year" : 2017,
+		"item" : "pepsi mint"
+	},
+	"totalPrice" : 2000,
+	"averageQuantity" : 100,
+	"count" : 2
+}
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 4,
+		"year" : 2016,
+		"item" : "polo"
+	},
+	"totalPrice" : 250,
+	"averageQuantity" : 50,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 1,
+		"day" : 1,
+		"year" : 1970,
+		"item" : "kaccha mango bites"
+	},
+	"totalPrice" : 300,
+	"averageQuantity" : 300,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 10,
+		"day" : 3,
+		"year" : 2017,
+		"item" : "cola mint"
+	},
+	"totalPrice" : 5000,
+	"averageQuantity" : 500,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 10,
+		"day" : 2,
+		"year" : 2014,
+		"item" : "milky bar"
+	},
+	"totalPrice" : 15000,
+	"averageQuantity" : 1000,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 5,
+		"year" : 2014,
+		"item" : "dairy milk"
+	},
+	"totalPrice" : 1000,
+	"averageQuantity" : 100,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 5,
+		"year" : 2018,
+		"item" : "pata pat"
+	},
+	"totalPrice" : 25,
+	"averageQuantity" : 50,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 23,
+		"year" : 2018,
+		"item" : "popins"
+	},
+	"totalPrice" : 5000,
+	"averageQuantity" : 500,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 7,
+		"day" : 4,
+		"year" : 2015,
+		"item" : "coffee bites"
+	},
+	"totalPrice" : 75,
+	"averageQuantity" : 75,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 6,
+		"day" : 5,
+		"year" : 2015,
+		"item" : "krackers"
+	},
+	"totalPrice" : 1500,
+	"averageQuantity" : 300,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 1,
+		"day" : 1,
+		"year" : 1970,
+		"item" : "mango bites"
+	},
+	"totalPrice" : 400,
+	"averageQuantity" : 400,
+	"count" : 1
+}
+
+5) 
+
+db.invoice.aggregate(
+    [
+       {
+        $match : {date_of_invoice : "2014-12-05"}
+       },
+       {
+         $group : {
+            _id : { month: { $month: "$date_of_invoice" }, day: { $dayOfMonth: "$date_of_invoice" }, year: { $year: "$date_of_invoice" },item :"$item"},
+            totalPrice: { $sum: { $multiply: [ "$rate", "$qty" ] } },
+            averageQuantity: { $avg: "$qty" },
+            count: { $sum: 1 }
+         }
+       }
+    ]
+).pretty()
+
+6)
+
+
+
+
+7)
+
+
+8)
+
+> db.invoice.find().skip(3).limit(5).pretty()
+{
+	"_id" : ObjectId("5c887ad374a3165e72b7bb80"),
+	"id" : 4,
+	"item" : "popins",
+	"qty" : 500,
+	"rate" : 10,
+	"date_of_invoice" : ISODate("2018-12-23T00:00:00Z")
+}
+{
+	"_id" : ObjectId("5c887ad374a3165e72b7bb81"),
+	"id" : 5,
+	"item" : "coffee bites",
+	"qty" : 75,
+	"rate" : 1,
+	"date_of_invoice" : ISODate("2015-07-04T00:00:00Z")
+}
+{
+	"_id" : ObjectId("5c887ad374a3165e72b7bb82"),
+	"id" : 6,
+	"item" : "mango bites",
+	"qty" : 400,
+	"rate" : 1,
+	"date_of_invoice" : ISODate("1970-01-01T00:00:00Z")
+}
+{
+	"_id" : ObjectId("5c887ad374a3165e72b7bb83"),
+	"id" : 7,
+	"item" : "kaccha mango bites",
+	"qty" : 300,
+	"rate" : 1,
+	"date_of_invoice" : ISODate("1970-01-01T00:00:00Z")
+}
