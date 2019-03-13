@@ -434,10 +434,90 @@ db.invoice.aggregate(
 
 6)
 
+> db.invoice.aggregate( [ { $group : { _id : "$item" } } ] ).pretty();
+{ "_id" : "fanta mint" }
+{ "_id" : "pepsi mint" }
+{ "_id" : "milky bar" }
+{ "_id" : "dairy milk" }
+{ "_id" : "mango bites" }
+{ "_id" : "kaccha mango bites" }
+{ "_id" : "pata pat" }
+{ "_id" : "coffee bites" }
+{ "_id" : "cola mint" }
+{ "_id" : "popins" }
+{ "_id" : "polo" }
+{ "_id" : "krackers" }
+
 
 
 
 7)
+
+> db.invoice.aggregate(     [       { $group : { _id : "$item", invoiceDate: { $push: "$date_of_invoice" } } }     ]  ).pretty();
+{
+	"_id" : "fanta mint",
+	"invoiceDate" : [
+		ISODate("2017-10-03T00:00:00Z"),
+		ISODate("2017-10-03T00:00:00Z")
+	]
+}
+{
+	"_id" : "pepsi mint",
+	"invoiceDate" : [
+		ISODate("2017-10-03T00:00:00Z"),
+		ISODate("2017-10-03T00:00:00Z")
+	]
+}
+{
+	"_id" : "milky bar",
+	"invoiceDate" : [
+		ISODate("2014-10-02T00:00:00Z")
+	]
+}
+{
+	"_id" : "dairy milk",
+	"invoiceDate" : [
+		ISODate("2014-12-05T00:00:00Z")
+	]
+}
+{
+	"_id" : "mango bites",
+	"invoiceDate" : [
+		ISODate("1970-01-01T00:00:00Z")
+	]
+}
+{
+	"_id" : "kaccha mango bites",
+	"invoiceDate" : [
+		ISODate("1970-01-01T00:00:00Z")
+	]
+}
+{
+	"_id" : "pata pat",
+	"invoiceDate" : [
+		ISODate("2018-12-05T00:00:00Z")
+	]
+}
+{
+	"_id" : "coffee bites",
+	"invoiceDate" : [
+		ISODate("2015-07-04T00:00:00Z")
+	]
+}
+{
+	"_id" : "cola mint",
+	"invoiceDate" : [
+		ISODate("2017-10-03T00:00:00Z")
+	]
+}
+{ "_id" : "popins", "invoiceDate" : [ ISODate("2018-12-23T00:00:00Z") ] }
+{ "_id" : "polo", "invoiceDate" : [ ISODate("2016-12-04T00:00:00Z") ] }
+{
+	"_id" : "krackers",
+	"invoiceDate" : [
+		ISODate("2015-06-05T00:00:00Z")
+	]
+}
 
 
 8)
