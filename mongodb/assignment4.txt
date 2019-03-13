@@ -1,0 +1,268 @@
+1)
+> use mca
+switched to db mca
+
+
+> db.createCollection("invoice");
+{ "ok" : 1 }
+
+
+2)
+> db.invoice.insertMany(
+...     [
+...         {
+...            id:1,
+...            item:"dairy milk",
+...            qty:100,
+...            rate:10,
+...            date_of_invoice:new Date("2014-12-05")
+...         },
+...         {
+...             id:2,
+...             item:"milky bar",
+...             qty:1000,
+...             rate:15,
+...             date_of_invoice:new Date("2014-10-02")
+...          },
+...          {
+...             id:3,
+...             item:"polo",
+...             qty:50,
+...             rate:5,
+...             date_of_invoice:new Date("2016-12-04")
+...          },
+...          {
+...             id:4,
+...             item:"popins",
+...             qty:500,
+...             rate:10,
+...             date_of_invoice:new Date("2018-12-23")
+...          },
+...          {
+...             id:5,
+...             item:"coffee bites",
+...             qty:75,
+...             rate:1,
+...             date_of_invoice:new Date("2015-07-04")
+...          },
+...          {
+...             id:6,
+...             item:"mango bites",
+...             qty:400,
+...             rate:1,
+...             date_of_invoice:new Date("2016-1-10")
+...          },
+...          {
+...             id:7,
+...             item:"kaccha mango bites",
+...             qty:300,
+...             rate:1,
+...             date_of_invoice:new Date("2017-2-05")
+...          },
+...          {
+...             id:8,
+...             item:"pata pat",
+...             qty:50,
+...             rate:0.5,
+...             date_of_invoice:new Date("2018-12-05")
+...          },
+...          {
+...             id:9,
+...             item:"krackers",
+...             qty:300,
+...             rate:5,
+...             date_of_invoice:new Date("2015-06-05")
+...          },
+...          {
+...            > db.invoice.insertMany(
+...     [
+...         {
+...            id:1,
+...            item:"dairy milk",
+...            qty:100,
+...            rate:10,
+...            date_of_invoice:new Date("2014-12-05")
+...         },
+...         {
+...             id:2,
+...             item:"milky bar",
+...             qty:1000,
+...             rate:15,
+...             date_of_invoice:new Date("2014-10-02")
+...          },
+...          {
+...             id:3,
+...             item:"polo",
+...             qty:50,
+...             rate:5,
+...             date_of_invoice:new Date("2016-12-04")
+...          },
+...          {
+...             id:4,
+...             item:"popins",
+...             qty:500,
+...             rate:10,
+...             date_of_invoice:new Date("2018-12-23")
+...          },
+...          {
+...             id:5,
+...             item:"coffee bites",
+...             qty:75,
+...             rate:1,
+...             date_of_invoice:new Date("2015-07-04")
+...          },
+...          {
+...             id:6,
+...             item:"mango bites",
+...             qty:400,
+...             rate:1,
+...             date_of_invoice:new Date("2016-1-10")
+...          },
+...          {
+...             id:7,
+...             item:"kaccha mango bites",
+...             qty:300,
+...             rate:1,
+...             date_of_invoice:new Date("2017-2-05")
+...          },
+...          {
+...             id:8,
+...             item:"pata pat",
+...             qty:50,
+...             rate:0.5,
+...             date_of_invoice:new Date("2018-12-05")
+...          },
+...          {
+...             id:9,
+...             item:"krackers",
+...             qty:300,
+...             rate:5,
+...             date_of_invoice:new Date("2015-06-05")
+...          },
+...          {
+...             id:10,
+...             item:"cola mint",
+...             qty:500,
+...             rate:10,
+...             date_of_invoice:new Date("2017-10-03")
+...          },
+...     ]
+... )
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5c887ad374a3165e72b7bb7d"),
+                ObjectId("5c887ad374a3165e72b7bb7e"),
+                ObjectId("5c887ad374a3165e72b7bb7f"),
+                ObjectId("5c887ad374a3165e72b7bb80"),
+                ObjectId("5c887ad374a3165e72b7bb81"),
+                ObjectId("5c887ad374a3165e72b7bb82"),
+                ObjectId("5c887ad374a3165e72b7bb83"),
+                ObjectId("5c887ad374a3165e72b7bb84"),
+                ObjectId("5c887ad374a3165e72b7bb85"),
+                ObjectId("5c887ad374a3165e72b7bb86")
+        ]
+}
+
+> db.invoice.aggregate(
+...     [
+...        {
+...          $group : {
+...             _id : { month: { $month: "$date_of_invoice" }, day: { $dayOfMonth: "$date_of_invoice" }, year: { $year: "$date_of_invoice" } },
+...             totalPrice: { $sum: { $multiply: [ "$rate", "$qty" ] } },
+...             averageQuantity: { $avg: "$qty" },
+...             count: { $sum: 1 }
+...          }
+...        }
+...     ]
+... ).pretty()
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 5,
+		"year" : 2018
+	},
+	"totalPrice" : 25,
+	"averageQuantity" : 50,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 1,
+		"day" : 1,
+		"year" : 1970
+	},
+	"totalPrice" : 700,
+	"averageQuantity" : 350,
+	"count" : 2
+}
+{
+	"_id" : {
+		"month" : 6,
+		"day" : 5,
+		"year" : 2015
+	},
+	"totalPrice" : 1500,
+	"averageQuantity" : 300,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 5,
+		"year" : 2014
+	},
+	"totalPrice" : 1000,
+	"averageQuantity" : 100,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 10,
+		"day" : 3,
+		"year" : 2017
+	},
+	"totalPrice" : 13000,
+	"averageQuantity" : 260,
+	"count" : 5
+}
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 4,
+		"year" : 2016
+	},
+	"totalPrice" : 250,
+	"averageQuantity" : 50,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 10,
+		"day" : 2,
+		"year" : 2014
+	},
+	"totalPrice" : 15000,
+	"averageQuantity" : 1000,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 7,
+		"day" : 4,
+		"year" : 2015
+	},
+	"totalPrice" : 75,
+	"averageQuantity" : 75,
+	"count" : 1
+}
+{
+	"_id" : {
+		"month" : 12,
+		"day" : 23,
+		"year" : 2018
+	},
+	"totalPrice" : 5000,
+	"averageQuantity" : 500,
+	"count" : 1
+}
