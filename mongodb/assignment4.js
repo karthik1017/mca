@@ -229,3 +229,6 @@ db.employees.insertMany(
     ]
 )
 
+// 3)
+
+db.employees.aggregate([{$project:{emp_code:1,emp_name:1,}}]).pretty()

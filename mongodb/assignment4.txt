@@ -655,3 +655,57 @@ Scenario-2
         ]
 }
 
+
+3)
+
+> db.employees.aggregate([{$project:{emp_code:1,emp_name:1,}}]).pretty()
+{
+        "_id" : ObjectId("5c888a0110ece4c30799124b"),
+        "emp_code" : "EMP-001",
+        "emp_name" : "KARTHIK"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c30799124c"),
+        "emp_code" : "EMP-002",
+        "emp_name" : "HARSHA"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c30799124d"),
+        "emp_code" : "EMP-003",
+        "emp_name" : "JEEVAN"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c30799124e"),
+        "emp_code" : "EMP-004",
+        "emp_name" : "LAKSHMAN"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c30799124f"),
+        "emp_code" : "EMP-005",
+        "emp_name" : "RAMA"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c307991250"),
+        "emp_code" : "EMP-006",
+        "emp_name" : "KRISHNA"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c307991251"),
+        "emp_code" : "EMP-007",
+        "emp_name" : "SITA"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c307991252"),
+        "emp_code" : "EMP-008",
+        "emp_name" : "VEDHANTH"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c307991253"),
+        "emp_code" : "EMP-009",
+        "emp_name" : "VYASA"
+}
+{
+        "_id" : ObjectId("5c888a0110ece4c307991254"),
+        "emp_code" : "EMP-010",
+        "emp_name" : "VAIDEHI"
+}
