@@ -709,3 +709,34 @@ Scenario-2
         "emp_code" : "EMP-010",
         "emp_name" : "VAIDEHI"
 }
+
+4)
+
+
+> db.employee.updateOne({id: 10}, {
+...     $set: {
+...       deduction: {
+...         pf: 4000,
+...         pt: 3000,
+...         it: 200
+...       }
+...     }
+...   })
+
+{ "acknowledged" : true, "matchedCount" : 0, "modifiedCount" : 0 }
+
+5)
+
+
+> db.employee.aggregate([{$project: {_id: 1, deduction: 1}}]).pretty()
+{ "_id" : ObjectId("5c65307532df94562d66ce00") }
+{ "_id" : ObjectId("5c65307532df94562d66ce01") }
+{ "_id" : ObjectId("5c65307532df94562d66ce02") }
+{ "_id" : ObjectId("5c65307532df94562d66ce03") }
+{ "_id" : ObjectId("5c65307532df94562d66ce04") }
+{ "_id" : ObjectId("5c65307532df94562d66ce05") }
+{ "_id" : ObjectId("5c65307532df94562d66ce06") }
+{ "_id" : ObjectId("5c65307532df94562d66ce07") }
+{ "_id" : ObjectId("5c65307532df94562d66ce08") }
+{ "_id" : ObjectId("5c65307532df94562d66ce09") }
+{ "_id" : ObjectId("5c658bd32aed8c5b4afdad1c") }

@@ -232,3 +232,16 @@ db.employees.insertMany(
 // 3)
 
 db.employees.aggregate([{$project:{emp_code:1,emp_name:1,}}]).pretty()
+
+
+// 4) 
+
+db.employee.updateOne({id: 10}, {
+    $set: {
+      deduction: {
+        pf: 4000,
+        pt: 3000,
+        it: 200
+      }
+    }
+  })
