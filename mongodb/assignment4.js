@@ -135,10 +135,14 @@ db.invoice.aggregate(
 ).pretty()
 
 
+db.invoice.aggregate( [ { $group : { _id : "$item" } } ] ).pretty();
 
+db.invoice.aggregate(
+    [
+      { $group : { _id : "$item", invoiceDate: { $push: "$date_of_invoice" } } }
+    ]
+ ).pretty();
 
-
-
-db.invoice.find().skip(3).limit(4).pretty()
+db.invoice.find().skip(3).limit(5).pretty()
 
 
