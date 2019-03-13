@@ -1,3 +1,5 @@
+***)     Scenario 1
+
 1)
 > use mca
 switched to db mca
@@ -519,9 +521,7 @@ db.invoice.aggregate(
 	]
 }
 
-
 8)
-
 > db.invoice.find().skip(3).limit(5).pretty()
 {
 	"_id" : ObjectId("5c887ad374a3165e72b7bb80"),
@@ -555,3 +555,103 @@ db.invoice.aggregate(
 	"rate" : 1,
 	"date_of_invoice" : ISODate("1970-01-01T00:00:00Z")
 }
+
+
+Scenario-2
+
+
+1) 
+> db.createCollection("employees")
+{ "ok" : 1 }
+
+
+2)> db.employees.insertMany(
+...     [
+...         {
+...             "id":1,
+...             "emp_code":"EMP-001",
+...             "emp_name":"KARTHIK",
+...             "doj":new Date("2018-12-23"),
+...             "salary":10000
+...         },
+...         {
+...             "id":2,
+...             "emp_code":"EMP-002",
+...             "emp_name":"HARSHA",
+...             "doj":new Date("2018-2-20"),
+...             "salary":20000
+...         },
+...         {
+...             "id":3,
+...             "emp_code":"EMP-003",
+...             "emp_name":"JEEVAN",
+...             "doj":new Date("2017-1-23"),
+...             "salary":30000
+...         },
+...         {
+...             "id":4,
+...             "emp_code":"EMP-004",
+...             "emp_name":"LAKSHMAN",
+...             "doj":new Date("2016-12-23"),
+...             "salary":30000
+...         },
+...         {
+...             "id":5,
+...             "emp_code":"EMP-005",
+...             "emp_name":"RAMA",
+...             "doj":new Date("2014-12-02"),
+...             "salary":40000
+...         },
+...         {
+...             "id":6,
+...             "emp_code":"EMP-006",
+...             "emp_name":"KRISHNA",
+...             "doj":new Date("2015-10-23"),
+...             "salary":90000
+...         },
+...         {
+...             "id":7,
+...             "emp_code":"EMP-007",
+...             "emp_name":"SITA",
+...             "doj":new Date("2015-02-03"),
+...             "salary":40000
+...         },
+...         {
+...             "id":8,
+...             "emp_code":"EMP-008",
+...             "emp_name":"VEDHANTH",
+...             "doj":new Date("2013-10-23"),
+...             "salary":90000
+...         },
+...         {
+...             "id":9,
+...             "emp_code":"EMP-009",
+...             "emp_name":"VYASA",
+...             "doj":new Date("2012-05-21"),
+...             "salary":60000
+...         },
+...         {
+...             "id":10,
+...             "emp_code":"EMP-010",
+...             "emp_name":"VAIDEHI",
+...             "doj":"2016-12-23",
+...             "salary":70000
+...         },
+...     ]
+... )
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5c888a0110ece4c30799124b"),
+                ObjectId("5c888a0110ece4c30799124c"),
+                ObjectId("5c888a0110ece4c30799124d"),
+                ObjectId("5c888a0110ece4c30799124e"),
+                ObjectId("5c888a0110ece4c30799124f"),
+                ObjectId("5c888a0110ece4c307991250"),
+                ObjectId("5c888a0110ece4c307991251"),
+                ObjectId("5c888a0110ece4c307991252"),
+                ObjectId("5c888a0110ece4c307991253"),
+                ObjectId("5c888a0110ece4c307991254")
+        ]
+}
+
