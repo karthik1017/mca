@@ -1,0 +1,1442 @@
+2)
+
+db.createCollection("restaurants");
+{
+	"ok" : 1,
+	"operationTime" : Timestamp(1553663130, 1),
+	"$clusterTime" : {
+		"clusterTime" : Timestamp(1553663130, 1),
+		"signature" : {
+			"hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+			"keyId" : NumberLong(0)
+		}
+	}
+}
+
+3)
+
+db.restaurants.insertMany(
+...     [
+...         {
+...             id:1,
+...             name:"the bell hotel",
+...             cusine:"continentel",
+...             address:{
+...                 building:102,
+...                 city:"bengaluru",
+...                 pincode:"560073"
+...             },
+...             star:3,
+...             locality:"jayanagar",
+...             grade:[
+...                 {
+...                     date:new Date("2019-3-4"),
+...                     grade:"A",
+...                     score:8
+...                 },
+...                 {
+...                     data:new Date("2014-3-5"),
+...                     grade:"B",
+...                     score:7
+...                 }
+...             ]
+...         },
+...         {
+...             id:2,
+...             name:"the empire hotel",
+...             cusine:"mughal",
+...             address:{
+...                 building:1002,
+...                 city:"bengaluru",
+...                 pincode:"560023"
+...             },
+...             star:3,
+...             locality:"koramangala",
+...             grade:[
+...                 {
+...                     date:new Date("2018-5-23"),
+...                     grade:"A",
+...                     score:9
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"B",
+...                     score:7
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"c",
+...                     score:4
+...                 },
+...             ]
+...         },
+...         {
+...             id:3,
+...             name:"the shivaji military hotel",
+...             cusine:"Marati",
+...             address:{
+...                 building:202,
+...                 city:"bengaluru",
+...                 pincode:"560072"
+...             },
+...             star:3,
+...             locality:"banashankari",
+...             grade:[
+...                 {
+...                     date:new Date("2017-3-4"),
+...                     grade:"A",
+...                     score:10
+{
+                    },
+...                 {
+...                     data:new Date("2019-3-5"),
+...                     grade:"A",
+...                     score:10
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"B",
+...                     score:8
+...                 }
+...             ]
+...         },
+...         {
+...             id:4,
+...             name:"the udupi grand",
+...             cusine:"south indian",
+...             address:{
+...                 building:7900,
+...                 city:"bengaluru",
+...                 pincode:"560043"
+...             },
+...             star:3,
+...             locality:"RR nagar",
+...             grade:[
+...                 {
+...                     date:new Date("2019-3-4"),
+...                     grade:"A",
+...                     score:8
+...                 },
+...                 {
+...                     data:new Date("2014-3-5"),
+...                     grade:"B",
+...                     score:7
+...                 }
+...             ]
+...         },
+...         {
+...             id:5,
+...             name:"the biryani paradise",
+...             cusine:"andhra cusine",
+...             address:{
+...                 building:702,
+...                 city:"bengaluru",
+...                 pincode:"560053"
+...             },
+...             star:5,
+...             locality:"jayanagar",
+...             grade:[
+...                 {
+...                     date:new Date("2019-3-4"),
+...                     grade:"A",
+...                     score:8
+...                 },
+...                 {
+...                     data:new Date("2014-3-5"),
+...                     grade:"B",
+...                     score:7
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"B",
+...                     score:7
+...                 }
+...             ]
+...         },
+...         {
+...             id:6,
+...             name:"kebab magic",
+...             cusine:"mughal",
+...             address:{
+...                 building:6602,
+...                 city:"bengaluru",
+...                 pincode:"560063"
+...             },
+...             star:5,
+...             locality:"RR nagar  ",
+...             grade:[
+...                 {
+...                     date:new Date("2017-3-4"),
+...                     grade:"c",
+...                     score:5
+...                 },
+...                 {
+...                     data:new Date("2014-3-5"),
+...                     grade:"A",
+...                     score:9
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"B",
+...                     score:7
+...                 }
+...             ]
+...         },
+...         {
+...             id:7,
+...             name:"A2B",
+...             cusine:"south",
+...             address:{
+...                 building:2102,
+...                 city:"bengaluru",
+...                 pincode:"560043"
+...             },
+...             star:3,
+...             locality:"jayanagar",
+...             grade:[
+...                 {
+...                     date:new Date("2019-3-4"),
+...                     grade:"A",
+...                     score:8
+...                 },
+...                 {
+...                     data:new Date("2014-3-5"),
+...                     grade:"B",
+...                     score:7
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"B",
+...                     score:7
+...                 }
+...             ]
+...         },
+...         {
+...             id:8,
+...             name:"the ITC",
+...             cusine:"continental",
+...             address:{
+...                 building:1102,
+...                 city:"bengaluru",
+...                 pincode:"560083"
+...             },
+...             star:7,
+...             locality:"MG road",
+...             grade:[
+...                 {
+...                     date:new Date("2019-3-4"),
+...                     grade:"A",
+...                     score:8
+...                 },
+...                 {
+...                     data:new Date("2014-3-5"),
+...                     grade:"A",
+...                     score:10
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"B",
+...                     score:7
+...                 }
+...             ]
+...         },
+...         {
+...             id:9,
+...             name:"vidyarthi bhavan",
+...             cusine:"south",
+...             address:{
+...                 building:4102,
+...                 city:"bengaluru",
+...                 pincode:"560093"
+...             },
+...             star:3,
+...             locality:"basavanagudi",
+...             grade:[
+...                 {
+...                     date:new Date("2019-3-4"),
+...                     grade:"A",
+...                     score:9
+...                 },
+...                 {
+...                     data:new Date("2014-3-5"),
+...                     grade:"A",
+...                     score:10
+...                 },
+...                 {
+...                     data:new Date("2019-6-12"),
+...                     grade:"A",
+...                     score:9
+...                 },
+...                 {
+...                     id:10,
+...                     name:"CTR",
+...                     cusine:"south",
+...                     address:{
+...                         building:412,
+...                         city:"bengaluru",
+...                         pincode:"560193"
+...                     },
+...                     star:3,
+...                     locality:"malleshwaram",
+...                     grade:[
+...                         {
+...                             date:new Date("2019-3-4"),
+...                             grade:"A",
+...                             score:9
+...                         },
+...                         {
+...                             data:new Date("2018-2-11"),
+...                             grade:"A",
+...                             score:9
+...                         },
+...                         {
+...                             data:new Date("2019-6-12"),
+...                             grade:"A",
+...                             score:9
+...                         }
+...                     ]
+...                 }
+...             ]
+...         },
+...     ]
+... )
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5c9b04d5e832ffebea2d81a3"),
+		ObjectId("5c9b04d5e832ffebea2d81a4"),
+		ObjectId("5c9b04d5e832ffebea2d81a5"),
+		ObjectId("5c9b04d5e832ffebea2d81a6"),
+		ObjectId("5c9b04d5e832ffebea2d81a7"),
+		ObjectId("5c9b04d5e832ffebea2d81a8"),
+		ObjectId("5c9b04d5e832ffebea2d81a9"),
+		ObjectId("5c9b04d5e832ffebea2d81aa"),
+		ObjectId("5c9b04d5e832ffebea2d81ab")
+	]
+}
+
+4)
+
+db.restaurants.find().pretty();
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a3"),
+	"id" : 1,
+	"name" : "the bell hotel",
+	"cusine" : "continentel",
+	"address" : {
+		"building" : 102,
+		"city" : "bengaluru",
+		"pincode" : "560073"
+	},
+	"star" : 3,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a4"),
+	"id" : 2,
+	"name" : "the empire hotel",
+	"cusine" : "mughal",
+	"address" : {
+		"building" : 1002,
+		"city" : "bengaluru",
+		"pincode" : "560023"
+	},
+	"star" : 3,
+	"locality" : "koramangala",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 4
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a5"),
+	"id" : 3,
+	"name" : "the shivaji military hotel",
+	"cusine" : "Marati",
+	"address" : {
+		"building" : 202,
+		"city" : "bengaluru",
+		"pincode" : "560072"
+	},
+	"star" : 3,
+	"locality" : "banashankari",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 8
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a6"),
+	"id" : 4,
+	"name" : "the udupi grand",
+	"cusine" : "south indian",
+	"address" : {
+		"building" : 7900,
+		"city" : "bengaluru",
+		"pincode" : "560043"
+	},
+	"star" : 3,
+	"locality" : "RR nagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a7"),
+	"id" : 5,
+	"name" : "the biryani paradise",
+	"cusine" : "andhra cusine",
+	"address" : {
+		"building" : 702,
+		"city" : "bengaluru",
+		"pincode" : "560053"
+	},
+	"star" : 5,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a8"),
+	"id" : 6,
+	"name" : "kebab magic",
+	"cusine" : "mughal",
+	"address" : {
+		"building" : 6602,
+		"city" : "bengaluru",
+		"pincode" : "560063"
+	},
+	"star" : 5,
+	"locality" : "RR nagar  ",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 5
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a9"),
+	"id" : 7,
+	"name" : "A2B",
+	"cusine" : "south",
+	"address" : {
+		"building" : 2102,
+		"city" : "bengaluru",
+		"pincode" : "560043"
+	},
+	"star" : 3,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81aa"),
+	"id" : 8,
+	"name" : "the ITC",
+	"cusine" : "continental",
+	"address" : {
+		"building" : 1102,
+		"city" : "bengaluru",
+		"pincode" : "560083"
+	},
+	"star" : 7,
+	"locality" : "MG road",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81ab"),
+	"id" : 9,
+	"name" : "vidyarthi bhavan",
+	"cusine" : "south",
+	"address" : {
+		"building" : 4102,
+		"city" : "bengaluru",
+		"pincode" : "560093"
+	},
+	"star" : 3,
+	"locality" : "basavanagudi",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"id" : 10,
+			"name" : "CTR",
+			"cusine" : "south",
+			"address" : {
+				"building" : 412,
+				"city" : "bengaluru",
+				"pincode" : "560193"
+			},
+			"star" : 3,
+			"locality" : "malleshwaram",
+			"grade" : [
+				{
+					"date" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				},
+				{
+					"data" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				},
+				{
+					"data" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				}
+			]
+		}
+	]
+}
+
+5)
+
+db.restaurants.find({},{id:1,name:1,cuisine:1}).pretty();
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a3"),
+	"id" : 1,
+	"name" : "the bell hotel"
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a4"),
+	"id" : 2,
+	"name" : "the empire hotel"
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a5"),
+	"id" : 3,
+	"name" : "the shivaji military hotel"
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a6"),
+	"id" : 4,
+	"name" : "the udupi grand"
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a7"),
+	"id" : 5,
+	"name" : "the biryani paradise"
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a8"),
+	"id" : 6,
+	"name" : "kebab magic"
+}
+{ "_id" : ObjectId("5c9b04d5e832ffebea2d81a9"), "id" : 7, "name" : "A2B" }
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81aa"),
+	"id" : 8,
+	"name" : "the ITC"
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81ab"),
+	"id" : 9,
+	"name" : "vidyarthi bhavan"
+}
+
+6)
+
+ db.restaurants.find({locality:"RR nagar"}).limit(5).pretty();
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a6"),
+	"id" : 4,
+	"name" : "the udupi grand",
+	"cusine" : "south indian",
+	"address" : {
+		"building" : 7900,
+		"city" : "bengaluru",
+		"pincode" : "560043"
+	},
+	"star" : 3,
+	"locality" : "RR nagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+
+7)
+
+db.restaurants.find(
+...     {"grade.score" :
+...        {$mod : [7,0]}
+...     },
+...        {"id" : 1,"name":1,"grade":1}
+... ).pretty();
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a3"),
+	"id" : 1,
+	"name" : "the bell hotel",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a4"),
+	"id" : 2,
+	"name" : "the empire hotel",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 4
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a6"),
+	"id" : 4,
+	"name" : "the udupi grand",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a7"),
+	"id" : 5,
+	"name" : "the biryani paradise",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a8"),
+	"id" : 6,
+	"name" : "kebab magic",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 5
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a9"),
+	"id" : 7,
+	"name" : "A2B",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81aa"),
+	"id" : 8,
+	"name" : "the ITC",
+	"grade" : [
+		{   
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+
+8)
+
+db.restaurants.find().sort(
+...     {"cuisine":1,"locality" : -1}
+... ).pretty();
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a4"),
+	"id" : 2,
+	"name" : "the empire hotel",
+	"cusine" : "mughal",
+	"address" : {
+		"building" : 1002,
+		"city" : "bengaluru",
+		"pincode" : "560023"
+	},
+	"star" : 3,
+	"locality" : "koramangala",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 4
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a3"),
+	"id" : 1,
+	"name" : "the bell hotel",
+	"cusine" : "continentel",
+	"address" : {
+		"building" : 102,
+		"city" : "bengaluru",
+		"pincode" : "560073"
+	},
+	"star" : 3,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a7"),
+	"id" : 5,
+	"name" : "the biryani paradise",
+	"cusine" : "andhra cusine",
+	"address" : {
+		"building" : 702,
+		"city" : "bengaluru",
+		"pincode" : "560053"
+	},
+	"star" : 5,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a9"),
+	"id" : 7,
+	"name" : "A2B",
+	"cusine" : "south",
+	"address" : {
+		"building" : 2102,
+		"city" : "bengaluru",
+		"pincode" : "560043"
+	},
+	"star" : 3,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81ab"),
+	"id" : 9,
+	"name" : "vidyarthi bhavan",
+	"cusine" : "south",
+	"address" : {
+		"building" : 4102,
+		"city" : "bengaluru",
+		"pincode" : "560093"
+	},
+	"star" : 3,
+	"locality" : "basavanagudi",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"id" : 10,
+			"name" : "CTR",
+			"cusine" : "south",
+			"address" : {
+				"building" : 412,
+				"city" : "bengaluru",
+				"pincode" : "560193"
+			},
+			"star" : 3,
+			"locality" : "malleshwaram",
+			"grade" : [
+				{
+					"date" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				},
+				{
+					"data" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				},
+				{
+					"data" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				}
+			]
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a5"),
+	"id" : 3,
+	"name" : "the shivaji military hotel",
+	"cusine" : "Marati",
+	"address" : {
+		"building" : 202,
+		"city" : "bengaluru",
+		"pincode" : "560072"
+	},
+	"star" : 3,
+	"locality" : "banashankari",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 8
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a8"),
+	"id" : 6,
+	"name" : "kebab magic",
+	"cusine" : "mughal",
+	"address" : {
+		"building" : 6602,
+		"city" : "bengaluru",
+		"pincode" : "560063"
+	},
+	"star" : 5,
+	"locality" : "RR nagar  ",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 5
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a6"),
+	"id" : 4,
+	"name" : "the udupi grand",
+	"cusine" : "south indian",
+	"address" : {
+		"building" : 7900,
+		"city" : "bengaluru",
+		"pincode" : "560043"
+	},
+	"star" : 3,
+	"locality" : "RR nagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81aa"),
+	"id" : 8,
+	"name" : "the ITC",
+	"cusine" : "continental",
+	"address" : {
+		"building" : 1102,
+		"city" : "bengaluru",
+		"pincode" : "560083"
+	},
+	"star" : 7,
+	"locality" : "MG road",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+
+9)
+
+db.restaurants.find( 
+...     { "grade.1.date": ISODate("2018-02-11T00:00:00Z"), 
+...       "grade.1.grade":"A" , 
+...       "grade.1.score" :9
+...     }, 
+...      {"id" : 1,"name":1,"grade":1}
+...  ).pretty();
+
+
+10)
+
+db.restaurants.find().sort(
+...      {"name":1}
+...  ).pretty();
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a9"),
+	"id" : 7,
+	"name" : "A2B",
+	"cusine" : "south",
+	"address" : {
+		"building" : 2102,
+		"city" : "bengaluru",
+		"pincode" : "560043"
+	},
+	"star" : 3,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a8"),
+	"id" : 6,
+	"name" : "kebab magic",
+	"cusine" : "mughal",
+	"address" : {
+		"building" : 6602,
+		"city" : "bengaluru",
+		"pincode" : "560063"
+	},
+	"star" : 5,
+	"locality" : "RR nagar  ",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 5
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81aa"),
+	"id" : 8,
+	"name" : "the ITC",
+	"cusine" : "continental",
+	"address" : {
+		"building" : 1102,
+		"city" : "bengaluru",
+		"pincode" : "560083"
+	},
+	"star" : 7,
+	"locality" : "MG road",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a3"),
+	"id" : 1,
+	"name" : "the bell hotel",
+	"cusine" : "continentel",
+	"address" : {
+		"building" : 102,
+		"city" : "bengaluru",
+		"pincode" : "560073"
+	},
+	"star" : 3,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a7"),
+	"id" : 5,
+	"name" : "the biryani paradise",
+	"cusine" : "andhra cusine",
+	"address" : {
+		"building" : 702,
+		"city" : "bengaluru",
+		"pincode" : "560053"
+	},
+	"star" : 5,
+	"locality" : "jayanagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a4"),
+	"id" : 2,
+	"name" : "the empire hotel",
+	"cusine" : "mughal",
+	"address" : {
+		"building" : 1002,
+		"city" : "bengaluru",
+		"pincode" : "560023"
+	},
+	"star" : 3,
+	"locality" : "koramangala",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "c",
+			"score" : 4
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a5"),
+	"id" : 3,
+	"name" : "the shivaji military hotel",
+	"cusine" : "Marati",
+	"address" : {
+		"building" : 202,
+		"city" : "bengaluru",
+		"pincode" : "560072"
+	},
+	"star" : 3,
+	"locality" : "banashankari",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 8
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81a6"),
+	"id" : 4,
+	"name" : "the udupi grand",
+	"cusine" : "south indian",
+	"address" : {
+		"building" : 7900,
+		"city" : "bengaluru",
+		"pincode" : "560043"
+	},
+	"star" : 3,
+	"locality" : "RR nagar",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 8
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "B",
+			"score" : 7
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c9b04d5e832ffebea2d81ab"),
+	"id" : 9,
+	"name" : "vidyarthi bhavan",
+	"cusine" : "south",
+	"address" : {
+		"building" : 4102,
+		"city" : "bengaluru",
+		"pincode" : "560093"
+	},
+	"star" : 3,
+	"locality" : "basavanagudi",
+	"grade" : [
+		{
+			"date" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 10
+		},
+		{
+			"data" : ISODate("1970-01-01T00:00:00Z"),
+			"grade" : "A",
+			"score" : 9
+		},
+		{
+			"id" : 10,
+			"name" : "CTR",
+			"cusine" : "south",
+			"address" : {
+				"building" : 412,
+				"city" : "bengaluru",
+				"pincode" : "560193"
+			},
+			"star" : 3,
+			"locality" : "malleshwaram",
+			"grade" : [
+				{
+					"date" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				},
+				{
+					"data" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				},
+				{
+					"data" : ISODate("1970-01-01T00:00:00Z"),
+					"grade" : "A",
+					"score" : 9
+				}
+			]
+		}
+	]
+}
+
+
+
+
+
