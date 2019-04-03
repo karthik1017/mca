@@ -1,5 +1,5 @@
 import java.io. *;
-import java.uti. *;
+import java.util. *;
 import java.util.Scanner;
 import java.lang.String;
 
@@ -10,8 +10,8 @@ interface Amma{
 
 abstract class Counter implements Amma{
    String userName = "karthik";
-   String password = "karthik123" 
-   int total=0;count = 0; 
+   String password = "karthik123" ;
+   int total=0,count = 0; 
    abstract boolean authen();
    abstract void calcualte();
    abstract void showMenu();
