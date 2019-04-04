@@ -6,10 +6,14 @@
 		void displayBank(){
 			System.out.println("welcome to KARTHIK BANKERS CO.");
 			System.out.println("we provide loans");
+			System.out.printf("\n Please enter your name:");
+			Scanner sc = new Scanner(System.in);
+			String name = sc.nextLine();
+			System.out.printf("\n Please enter your acc no:");
+			int acc_no = sc.nextInt();
 		}
 
 	}
-
 	class Loan extends Bank{
 		void displayLoan(){
 			System.out.printf("1)loan\n2)HomeLoan\n3)PersonalLoan\n");
@@ -42,29 +46,29 @@
 	class stat{
 		public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
-			System.out.printf("\n 1)vehicle loan \n 2)personal loan \n 3)homeloan")
+			Bank b = new Bank();
+			b.displayBank();
+			System.out.printf("\n 1)vehicle loan \n 2)personal loan \n 3)homeloan \n");
 			System.out.println("enter ur choice");
 			int choice = sc.nextInt();
 			switch(choice) {
             case 1:
 			       Vloan v = new Vloan();
-			       v.displayBank();
 			       v.displayLoan();
 			       v.displayVloan();
                    break;
             case 2:
 			       PersonalLoan P = new PersonalLoan();
-			       P.displayBank();
 			       P.displayLoan();
 			       P.displayPloan();
                    break;
 			case 3:
 			       HomeLoan h = new HomeLoan();
-			       h.displayBank();
 			       h.displayLoan();
 			       h.displayHloan();
 			       break;
             default:
-}                  System.out.println('wrong choice')
+                 System.out.println("wrong choice");
 		}
 	}
+}
