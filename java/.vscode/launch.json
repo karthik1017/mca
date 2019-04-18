@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Frequency",
+            "request": "launch",
+            "mainClass": "Frequency"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Lexo",
+            "request": "launch",
+            "mainClass": "Lexo"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Period",
+            "request": "launch",
+            "mainClass": "Period"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - InsertString",
+            "request": "launch",
+            "mainClass": "InsertString"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringReplace",
+            "request": "launch",
+            "mainClass": "StringReplace"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Replacing",
+            "request": "launch",
+            "mainClass": "Replacing"
+        }
+    ]
+}
